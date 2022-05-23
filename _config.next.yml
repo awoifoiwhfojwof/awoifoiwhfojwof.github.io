@@ -609,8 +609,8 @@ gitalk:
   enable: true
   github_id: awoifoiwhfojwof # GitHub repo owner
   repo: awoifoiwhfojwof.github.io # Repository name to store issues
-  client_id: process.env.CLIENT_ID # GitHub Application Client ID
-  client_secret: process.env.CLIENT_SECRET # GitHub Application Client Secret
+  client_id: ${{ secrets.CLIENT_ID }} # GitHub Application Client ID
+  client_secret: ${{ secrets.CLIENT_SECRET }} # GitHub Application Client Secret
   admin_user: awoifoiwhfojwof # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
   distraction_free_mode: true # Facebook-like distraction free mode
   # When the official proxy is not available, you can change it to your own proxy address
