@@ -1,36 +1,14 @@
-name: Hexo Deploy GitHub Pages
-on:
-  push:
-    branches:
-      - main
+env:
+  DAY_OF_WEEK: Monday
+
 jobs:
-  build-and-deploy:
+  greeting_job:
     runs-on: ubuntu-latest
-
+    env:
+      Greeting: Hello
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-
-      - name: Build and Deploy
-        uses: theme-keep/hexo-deploy-github-pages-action@master
+      - name: "Say Hello Mona it's Monday"
+        if: ${{ env.DAY_OF_WEEK == 'Monday' }}
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
         env:
-          PERSONAL_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          CLIENT_ID: ${{ secrets.CLIENT_ID }} # 评论系统的id
-          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }} # 评论系统的key
-
-          # The repository the action should deploy to.
-          PUBLISH_REPOSITORY: awoifoiwhfojwof/awoifoiwhfojwof.github.io
-
-          # The branch the action should deploy to.
-          BRANCH: gh-pages
-
-      # 部署到服务器
-      - name: Deploy To Server
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: '-rltgoDzvO --delete'
-          SOURCE: 'public/'
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.TARGET }}
+          First_Name: Mona

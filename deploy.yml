@@ -1,0 +1,36 @@
+name: Hexo Deploy GitHub Pages
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Build and Deploy
+        uses: theme-keep/hexo-deploy-github-pages-action@master
+        env:
+          PERSONAL_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          CLIENT_ID: ${{ secrets.CLIENT_ID }} # 评论系统的id
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }} # 评论系统的key
+
+          # The repository the action should deploy to.
+          PUBLISH_REPOSITORY: awoifoiwhfojwof/awoifoiwhfojwof.github.io
+
+          # The branch the action should deploy to.
+          BRANCH: gh-pages
+
+      # 部署到服务器
+      - name: Deploy To Server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: '-rltgoDzvO --delete'
+          SOURCE: 'public/'
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.TARGET }}
