@@ -1,3 +1,9 @@
+name: Hexo Deploy GitHub Pages
+on:
+  push:
+    branches:
+      - main
+
 env:
   DAY_OF_WEEK: Monday
 
