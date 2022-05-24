@@ -1,20 +1,8 @@
-name: Hexo Deploy GitHub Pages
-on:
-  push:
-    branches:
-      - main
-
-env:
-  DAY_OF_WEEK: Monday
-
+name: CI
+on: push
 jobs:
-  greeting_job:
+  prod-check:
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
-    env:
-      Greeting: Hello
     steps:
-      - name: "Say Hello Mona it's Monday"
-        if: ${{ env.DAY_OF_WEEK == 'Monday' }}
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
-        env:
-          First_Name: Mona
+      - run: echo "Deploying to production server on branch $GITHUB_REF"
