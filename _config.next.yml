@@ -575,18 +575,18 @@ comments:
 
 # Valine
 # For more information: https://valine.js.org, https://github.com/xCss/Valine
-valine:
-  enable: true
-  appId: xzq62o6Dcu81GqkwjmnTDXKt-gzGzoHsz # your leancloud application appid
-  appKey: Ol6IXpVvvuudEyvzFMRxKVba # your leancloud application appkey
-  serverURLs: https://www.zhanggin.work # When the custom domain name is enabled, fill it in here
-  placeholder: Just go go # comment box placeholder
-  avatar: mm # gravatar style
-  meta: [nick, mail] # Custom comment header
-  pageSize: 10 # pagination size
-  visitor: false # leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html
-  comment_count: false # If false, comment count will only be displayed in post page, not in home page
-  recordIP: false # Whether to record the commenter IP
+# valine:
+#   enable: true
+#   appId: xzq62o6Dcu81GqkwjmnTDXKt-gzGzoHsz # your leancloud application appid
+#   appKey: Ol6IXpVvvuudEyvzFMRxKVba # your leancloud application appkey
+#   serverURLs: https://www.zhanggin.work # When the custom domain name is enabled, fill it in here
+#   placeholder: Just go go # comment box placeholder
+#   avatar: mm # gravatar style
+#   meta: [nick, mail] # Custom comment header
+#   pageSize: 10 # pagination size
+#   visitor: false # leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html
+#   comment_count: false # If false, comment count will only be displayed in post page, not in home page
+#   recordIP: false # Whether to record the commenter IP
 
 # Disqus
 # For more information: https://disqus.com
@@ -621,19 +621,19 @@ livere_uid: # <your_uid>
 # Gitalk
 # For more information: https://gitalk.github.io
 gitalk:
-  enable: false
-  github_id: # GitHub repo owner
-  repo: # Repository name to store issues
-  client_id: # GitHub Application Client ID
-  client_secret: # GitHub Application Client Secret
-  admin_user: # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
+  enable: true
+  github_id: awoifoiwhfojwof # GitHub repo owner
+  repo: awoifoiwhfojwof.github.io # Repository name to store issues
+  client_id: ${{ env.CLIENT_ID }} # GitHub Application Client ID
+  client_secret: ${{ env.CLIENT_SECRET }} # GitHub Application Client Secret
+  admin_user: awoifoiwhfojwof # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
   distraction_free_mode: true # Facebook-like distraction free mode
   # When the official proxy is not available, you can change it to your own proxy address
   proxy: https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token # This is official proxy address
   # Gitalk's display language depends on user's browser or system environment
   # If you want everyone visiting your site to see a uniform language, you can set a force language value
   # Available values: en | es-ES | fr | ru | zh-CN | zh-TW
-  language:
+  language: zh-CN
 
 # Utterances
 # For more information: https://utteranc.es
